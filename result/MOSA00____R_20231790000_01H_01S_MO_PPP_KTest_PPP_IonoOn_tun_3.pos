@@ -1,0 +1,12 @@
+% program   : GINav v0.1.0
+% obs start : 2023/06/28 00:00:20.0
+% obs end   : 2023/06/28 01:37:29.0
+% mode      : PPP Kinematic
+% system    : GPS GALILEO 
+% nfreqs    : 2
+% elev mask : 10.0 deg
+% ephemeris : broadcast
+% ionos opt : estimation
+% trops opt : ZTD estimation
+%
+%  GPST              x-ecef(m)      y-ecef(m)      z-ecef(m)   Q  ns   sdx(m)   sdy(m)   sdz(m)  sdxy(m)  sdyz(m)  sdzx(m) age(s)  ratio    vx(m/s)    vy(m/s)    vz(m/s)      sdvx     sdvy     sdvz    sdvxy    sdvyz    sdvzx
