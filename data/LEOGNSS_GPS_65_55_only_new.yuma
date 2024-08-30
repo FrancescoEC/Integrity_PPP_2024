@@ -1,0 +1,448 @@
+******** Week 220 almanac for PRN-1 ********
+ID:                             1 
+Health:                         0 
+Eccentricity:                   2.48783695878421e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       0.00000000000000e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -2.09439510239320e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-2 ********
+ID:                             2 
+Health:                         0 
+Eccentricity:                   4.98106707160265e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -9.32005820564972e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-3 ********
+ID:                             3 
+Health:                         0 
+Eccentricity:                   1.24391847939211e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       3.49065850398866e-01
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -1.13446401379631e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN- 4********
+ID:                             4 
+Health:                         0 
+Eccentricity:                   2.40468978900000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.62946852200000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15360693400000e+03
+Right Ascen at Week(rad):       -2.28156085700000e+00
+Argument of Perigee(rad):       -2.98685533800000e+00
+Mean Anom(rad):                 -6.52783726700000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN- 5********
+ID:                             5 
+Health:                         0 
+Eccentricity:                   6.02436065700000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.66691922500000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15363769500000e+03
+Right Ascen at Week(rad):       2.87433395200000e+00
+Argument of Perigee(rad):       1.16667066100000e+00
+Mean Anom(rad):                 1.92960626800000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-6 ********
+ID:                             6 
+Health:                         0 
+Eccentricity:                   3.73175543817632e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       0.00000000000000e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -2.40855436775218e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN- 7********
+ID:                             7 
+Health:                         0 
+Eccentricity:                   1.74388885500000e-02
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.49955952400000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15368750000000e+03
+Right Ascen at Week(rad):       -1.26644644900000e+00
+Argument of Perigee(rad):       -2.18618665000000e+00
+Mean Anom(rad):                 -3.04805203300000e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN- 8********
+ID:                             8 
+Health:                         0 
+Eccentricity:                   8.46958160400000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.58422807300000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15366357400000e+03
+Right Ascen at Week(rad):       7.97792099000000e-01
+Argument of Perigee(rad):       2.71707096000000e-01
+Mean Anom(rad):                 -2.09841156500000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN- 9********
+ID:                             9 
+Health:                         0 
+Eccentricity:                   2.42280960100000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.56301599500000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15354296900000e+03
+Right Ascen at Week(rad):       -2.33846907300000e+00
+Argument of Perigee(rad):       1.93808398300000e+00
+Mean Anom(rad):                 2.61756818800000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-10 ********
+ID:                             10 
+Health:                         0 
+Eccentricity:                   2.50124868374419e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -6.17846555205992e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-11 ********
+ID:                             11 
+Health:                         0 
+Eccentricity:                   2.49380663019390e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       3.49065850398866e-01
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -1.70566267808537e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-12 ********
+ID:                             12 
+Health:                         0 
+Eccentricity:                   1.42237603617157e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -2.44346095279206e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 8.96464570342542e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-13 ********
+ID:                             13 
+Health:                         0 
+Eccentricity:                   2.51163051317629e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -3.03687289847013e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-14********
+ID:                             14 
+Health:                         0 
+Eccentricity:                   3.30543518100000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.48727569400000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15361962900000e+03
+Right Ascen at Week(rad):       -1.90724819800000e-01
+Argument of Perigee(rad):       -2.99023826000000e+00
+Mean Anom(rad):                 2.48204083600000e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-15 ********
+ID:                             15 
+Health:                         0 
+Eccentricity:                   2.48867730908813e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -2.44346095279206e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.46766323463160e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-16********
+ID:                             16 
+Health:                         0 
+Eccentricity:                   1.32956504800000e-02
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.65086036400000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15356201200000e+03
+Right Ascen at Week(rad):       -1.33415507300000e-01
+Argument of Perigee(rad):       7.89238733000000e-01
+Mean Anom(rad):                 7.21554077700000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-17 ********
+ID:                             17 
+Health:                         0 
+Eccentricity:                   1.34721273788906e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.04719755119755e-02
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-18 ********
+ID:                             18 
+Health:                         0 
+Eccentricity:                   2.48783695878421e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       3.49065850398866e-01
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -2.27686134237442e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-19 ********
+ID:                             19 
+Health:                         0 
+Eccentricity:                   2.54105917114302e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 3.24631240870946e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-20********
+ID:                             20 
+Health:                         0 
+Eccentricity:                   4.03547287000000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.49147017200000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15351367200000e+03
+Right Ascen at Week(rad):       2.75144096900000e+00
+Argument of Perigee(rad):       -2.87801348400000e+00
+Mean Anom(rad):                 -1.56421174400000e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-21 ********
+ID:                             21 
+Health:                         0 
+Eccentricity:                   1.29084789367247e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       3.49065850398866e-01
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 -2.84806000666347e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-22 ********
+ID:                             22 
+Health:                         0 
+Eccentricity:                   1.37563748332774e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 6.38790506229925e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-23 ********
+ID:                             23 
+Health:                         0 
+Eccentricity:                   2.69442547577811e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.48352986419518e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -2.44346095279206e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 2.03886189892065e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-24 ********
+ID:                             24 
+Health:                         0 
+Eccentricity:                   1.24391847939211e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       7.85398163397448e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.04719755119660e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.59459627114027e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-25 ********
+ID:                             25 
+Health:                         0 
+Eccentricity:                   1.34721273788906e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 9.52949771588904e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-26 ********
+ID:                             26 
+Health:                         0 
+Eccentricity:                   1.24391847939211e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -2.51327412287183e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 2.17817090648892e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-27********
+ID:                             27 
+Health:                         0 
+Eccentricity:                   1.15566253700000e-02
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.67309110100000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15362011700000e+03
+Right Ascen at Week(rad):       8.21372934000000e-01
+Argument of Perigee(rad):       7.42856412000000e-01
+Mean Anom(rad):                 -1.74775314500000e-01
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-28 ********
+ID:                             28 
+Health:                         0 
+Eccentricity:                   1.61800157428928e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.26710903694788e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-29 ********
+ID:                             29 
+Health:                         0 
+Eccentricity:                   1.42237603617157e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.89542756766584e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-30********
+ID:                             30 
+Health:                         0 
+Eccentricity:                   6.56080246000000e-03
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       9.35089521400000e-01
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               5.15351953100000e+03
+Right Ascen at Week(rad):       -1.26076517800000e+00
+Argument of Perigee(rad):       -2.56796922700000e+00
+Mean Anom(rad):                 -3.12961404600000e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-31 ********
+ID:                             31 
+Health:                         0 
+Eccentricity:                   1.42237603617157e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -1.88495559215388e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.58126830230686e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
+******** Week 220 almanac for PRN-32 ********
+ID:                             32 
+Health:                         0 
+Eccentricity:                   1.37959473020445e-16
+Time of Applicability(s):       259200
+Orbital Inclination(rad):       1.13446401379631e+00
+Rate of Right Ascen(r/s):       0.00000000000000e+00
+SQRT(A)  (m 1/2):               2.64161636124552e+03
+Right Ascen at Week(rad):       -2.51327412287183e+00
+Argument of Perigee(rad):       0.00000000000000e+00
+Mean Anom(rad):                 1.86401164112994e+00
+Af0(s):                         0.00000000000000e+00
+Af1(s/s):                       0.00000000000000e+00
+week:                           220
