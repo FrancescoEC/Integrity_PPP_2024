@@ -1,4 +1,4 @@
-function plot_pva_err_station(solution,station,flag)
+function plot_pva_err_station(solution,station,flag,varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright (C) 2020-2025, by Kai Chen, All rights reserved.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8,6 +8,10 @@ if nsol==0
 end
 if nref==0
     error('station truth is empty!!!\n');
+end
+
+if nargin>3
+    nsol=min([nsol,varargin{1}]);
 end
 
 pva_mea=zeros(nsol,11); pva_ref=zeros(nref,11);
@@ -48,7 +52,7 @@ if flag==1 || flag==4
             if dot(pva_ref(idx,3:5),pva_ref(idx,3:5))<=0
                 continue;
             end
-            t(k+1,:)=pva_mea(i,2);
+            t(k+1,:)=time;%pva_mea(i,2);
             pos1(k+1,:)=Cne*pva_mea(i,3:5)';
             pos2(k+1,:)=Cne*pva_ref(idx(1),3:5)';
             k=k+1;
@@ -125,6 +129,12 @@ if flag==1
     subplot(3,1,3),plot(t,delta1(:,3),'.b-');xlabel('GPS Time (s)'),ylabel('Up error(m)'),grid on;
     legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,3).^2)/size(delta1,1))));
 
+
+    figure ,
+    plot(t,sqrt(sum(delta1(:,1:3).^2)),'.b-');xlabel('GPS Time (s)'),ylabel('3D error(m)'),grid on;
+    legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,3).^2)/size(delta1,1))));
+
+
 elseif flag==2
     H=get(0,'ScreenSize'); w=600; h=450; x=H(3)/2-w/2; y=H(4)/2-h/2;
     figure;set(gcf,'Position',[x y w h]);
@@ -136,6 +146,9 @@ elseif flag==2
     legend(sprintf('RMS: %.4fm/s ', sqrt(sum(delta2(:,2).^2)/size(delta2,1))));
     subplot(3,1,3),plot(t,delta2(:,3),'.b-'),xlabel('GPS Time (s)'),ylabel('V_U error(m/s)'),grid on;
     legend(sprintf('RMS: %.4fm/s ', sqrt(sum(delta2(:,3).^2)/size(delta2,1))));
+        figure ,
+    plot(t,sqrt(sum(delta1(:,1:3).^2)),'.b-');xlabel('GPS Time (s)'),ylabel('3D error(m)'),grid on;
+    legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,3).^2)/size(delta1,1))));
 
 elseif flag==3
     H=get(0,'ScreenSize'); w=600; h=450; x=H(3)/2-w/2; y=H(4)/2-h/2;
@@ -153,19 +166,24 @@ elseif flag==3
     legend(sprintf('RMS: %.4f%s', sqrt(sum(delta3(:,2).^2)/size(delta3,1)),'\circ'));
     subplot(3,1,3),plot(t,delta3(:,3),'.b-'),xlabel('GPS Time (s)'),ylabel('YAW error(deg)'),grid on;
     legend(sprintf('RMS: %.4f%s', sqrt(sum(delta3(:,3).^2)/size(delta3,1)),'\circ'));
+        figure ,
+    plot(t,sqrt(sum(delta1(:,1:3).^2)),'.b-');xlabel('GPS Time (s)'),ylabel('3D error(m)'),grid on;
+    legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,3).^2)/size(delta1,1))));
 
 elseif flag==4
     H=get(0,'ScreenSize'); w=600; h=450; x=H(3)/2-w/2; y=H(4)/2-h/2;
     figure;set(gcf,'Position',[x y w h]);
     delta1=pos1-pos2; 
-    subplot(3,1,1),plot(delta1(:,1),'.r-');xlabel('GPS Time (s)'),ylabel('EAST error(m)');grid on;
+    subplot(3,1,1),plot(t,delta1(:,1),'.r-');xlabel('GPS Time (s)'),ylabel('EAST error(m)');grid on;
     title(['Position error','(GPS week=',num2str(pva_mea(1,1)),')']);
     legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,1).^2)/size(delta1,1))));
-    subplot(3,1,2),plot(delta1(:,2),'.g-');xlabel('GPS Time (s)'),ylabel('NORTH error(m)'),grid on;
+    subplot(3,1,2),plot(t,delta1(:,2),'.g-');xlabel('GPS Time (s)'),ylabel('NORTH error(m)'),grid on;
     legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,2).^2)/size(delta1,1))));
-    subplot(3,1,3),plot(delta1(:,3),'.b-');xlabel('GPS Time (s)'),ylabel('Up error(m)'),grid on;
+    subplot(3,1,3),plot(t,delta1(:,3),'.b-');xlabel('GPS Time (s)'),ylabel('Up error(m)'),grid on;
     legend(sprintf('RMS: %.4fm ', sqrt(sum(delta1(:,3).^2)/size(delta1,1))));
-
+        figure ,
+    plot(t,sqrt(sum(delta1(:,1:3).^2,2)),'.b-');xlabel('GPS Time (s)'),ylabel('3D error(m)'),grid on;
+    legend(sprintf('RMS: %.4fm ', rms(sqrt(sum(delta1(:,1:3).^2,2)))));
 end
 
 return

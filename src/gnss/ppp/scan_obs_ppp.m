@@ -6,14 +6,14 @@ obs=repmat(gls.obs_tmp,nobs0,1);
 
 for i=1:nobs0
     sat=obsr(i).sat;
-%     [sys,~]=satsys(sat);
+    [sys,~]=satsys(sat);
 %     if sys==glc.SYS_GAL,k=3;else,k=2;end
 %     if glc.NFREQ>=3&&(sys==glc.SYS_GPS),k=3;end
 %     if glc.NFREQ>=3&&(sys==glc.SYS_GAL),k=3;end
 
 %% ATENTION
-%     if obsr(i).L(1)==0||obsr(i).L(k)==0,continue;end
-%     if abs(obsr(i).P(1)-obsr(i).P(k))>=200,continue;end
+    if obsr(i).L(1)==0||obsr(i).L(k)==0,continue;end
+    if abs(obsr(i).P(1)-obsr(i).P(k))>=200,continue;end
     
     obs(nobs+1)=obsr(i);
     nobs=nobs+1;

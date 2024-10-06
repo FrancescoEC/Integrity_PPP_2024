@@ -10,7 +10,13 @@ v=zeros(nobs+NSYS,1); H=zeros(nobs+NSYS,8); P=zeros(nobs+NSYS,nobs+NSYS);
 vsat=zeros(nobs,1); azel=zeros(nobs,2); resp=zeros(nobs,1);
 nv=0; ns=0; 
 var=zeros(nobs+NSYS,nobs+NSYS); mask=zeros(5,1); idx=zeros(nobs,1);
-rr=x0(1:3); dtr=x0(4); pos=ecef2pos(rr);
+rr=x0(1:3); 
+if ~opt.Galileo_REF
+dtr=x0(4); 
+else
+dtr=x0(6); 
+end
+pos=ecef2pos(rr);
 troperr_vect=zeros(nobs,1);
 ionoerr_vect=zeros(nobs,1);
 
@@ -77,12 +83,22 @@ for i=1:nobs
     v(nv+1)=pr-(r+dtr-glc.CLIGHT*dts+ionoerr+troperr);
     
     % design measurement matrix
+    if ~opt.Galileo_REF
     H(nv+1,:)=[-LOS,1,0,0,0,0];
     if     sys==glc.SYS_GLO,v(nv+1)=v(nv+1)-x0(5);H(nv+1,5)=1;mask(2)=1;
     elseif sys==glc.SYS_GAL,v(nv+1)=v(nv+1)-x0(6);H(nv+1,6)=1;mask(3)=1;
     elseif sys==glc.SYS_BDS,v(nv+1)=v(nv+1)-x0(7);H(nv+1,7)=1;mask(4)=1;
     elseif sys==glc.SYS_QZS,v(nv+1)=v(nv+1)-x0(8);H(nv+1,8)=1;mask(5)=1;
     else                   ,                                  mask(1)=1;
+    end
+    else
+    H(nv+1,:)=[-LOS,0,0,1,0,0];
+    if     sys==glc.SYS_GLO,v(nv+1)=v(nv+1)-x0(5);H(nv+1,5)=1;mask(2)=1;
+    elseif sys==glc.SYS_GPS,v(nv+1)=v(nv+1)-x0(4);H(nv+1,4)=1;mask(1)=1;
+    elseif sys==glc.SYS_BDS,v(nv+1)=v(nv+1)-x0(7);H(nv+1,7)=1;mask(4)=1;
+    elseif sys==glc.SYS_QZS,v(nv+1)=v(nv+1)-x0(8);H(nv+1,8)=1;mask(5)=1;
+    else                   ,                                  mask(3)=1;
+    end
     end
     
     % variance matrix

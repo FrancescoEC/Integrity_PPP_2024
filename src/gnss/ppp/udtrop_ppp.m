@@ -1,7 +1,10 @@
 function rtk=udtrop_ppp(rtk)
 
 global glc
-VAR_GRA=0.01^2; azel=[0,pi/2];
+opt=rtk.opt;
+%VAR_GRA=0.01^2; 
+VAR_GRA=opt.std(3).^2;
+azel=[0,pi/2];
 
 if rtk.x(rtk.it+1)==0
     pos=ecef2pos(rtk.sol.pos);

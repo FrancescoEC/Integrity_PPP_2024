@@ -2,13 +2,13 @@ function  [rtk,obsr]=clkrepair(rtk,obsr,nav)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %repair receiver jump(only for GPS)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-global glc
-delta0=0; delta1=0; validGPS=0; cjGPS=0; validobs=zeros(32,1);
+global glc ClockJump
+delta0=0; delta1=0; validGPS=0; cjGPS=0; validobs=zeros(glc.MAXSAT,1);
 nobs=size(obsr,1); obs_rcr=rtk.obs_rcr;
 
 for i=1:nobs
     sat=obsr(i).sat;
-    if sat>glc.MAXPRNGPS,continue;end
+    %if sat>glc.MAXPRNGPS,continue;end
     lam=nav.lam(sat,:);
     
     if obsr(i).P(1)*obsr(i).P(2)*obsr(i).L(1)*obsr(i).L(2)==0,continue;end
@@ -23,10 +23,13 @@ for i=1:nobs
     d3=(obsr(i).L(1)-obs_rcr(sat,3))*lam(1);
     d4=(obsr(i).L(2)-obs_rcr(sat,4))*lam(2);
     
-    if abs(d1-d3)>290000 % ms clock jump
+    if abs(d1)>290000 % ms clock jump
         delta0=delta0+(d1-d3);
         delta1=delta1+(d2-d4);
         cjGPS=cjGPS+1;
+        ClockJump=1;
+    else
+        ClockJump=0;
     end
 end
 
@@ -46,7 +49,7 @@ end
 
 for i=1:nobs
     sat=obsr(i).sat;
-    if sat>glc.MAXPRNGPS,continue;end
+    %if sat>glc.MAXPRNGPS,continue;end
     validobs(sat)=1;
     
     rtk.obs_rcr(sat,1)=obsr(i).P(1);
@@ -63,7 +66,7 @@ for i=1:nobs
     
 end
 
-for i=1:glc.MAXPRNGPS
+for i=1:glc.MAXSAT
     if validobs(i)==0
         rtk.obs_rcr(i,1)=0;
         rtk.obs_rcr(i,2)=0;

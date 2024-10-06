@@ -78,7 +78,11 @@ if abs(rtk.sol.dtrd)>5&&abs(tt)<=10
     if rtk.rcv.clkbias~=0&&rtk.rcv.clkdrift~=0&&rtk.sol.dtr(1)~=0&&...
         rtk.sol.dtrd~=0
         clkbias0=rtk.rcv.clkbias+(rtk.rcv.clkdrift+rtk.sol.dtrd)/2*abs(tt);
+        if ~opt.Galileo_REF
         clkbias1=rtk.sol.dtr(1)*glc.CLIGHT;
+        else
+        clkbias1=rtk.sol.dtr(3)*glc.CLIGHT;
+        end
         if abs(clkbias0-clkbias1)>0.3*abs(rtk.rcv.clkdrift+rtk.sol.dtrd)/2
             stat0=0;
             rtk.sol.stat=glc.SOLQ_NONE;
@@ -90,7 +94,12 @@ if rtk.sol.stat~=glc.SOLQ_NONE
     rtk.rcv.time=obs(1).time;
     rtk.rcv.oldpos=rtk.sol.pos;
     rtk.rcv.oldvel=rtk.sol.vel;
+     if ~opt.Galileo_REF
     rtk.rcv.clkbias=rtk.sol.dtr(1)*glc.CLIGHT;
+     else
+    rtk.rcv.clkbias=rtk.sol.dtr(3)*glc.CLIGHT;
+
+     end
     rtk.rcv.clkdrift=rtk.sol.dtrd;
 end
 

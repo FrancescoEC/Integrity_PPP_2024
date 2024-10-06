@@ -5,7 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear 
 clear global glc gls
-global  glc gls motionV2 OptionSatnav satdataV1A2 InitTime OptionRinexDummy 
+global  glc gls motionV2 OptionSatnav satdataV1A2 InitTime SkipTime
+global OptionRinexDummy File_Error_BRD File_Error_HAS ClockBias
+global OptionClock OptionSatNavEph 
 
 
 %% windows or unix/linux
@@ -682,7 +684,7 @@ rtk.sol=gls.sol;   %solution
 rtk.oldsol=gls.sol;
 rtk.rcv=gls.rcv;
 rtk.sat=repmat(gls.sat,1,glc.MAXSAT);   %satellite status 
-rtk.obs_rcr=zeros(32,4); %observation for receiver clock jump repair(noly for GPS)
+rtk.obs_rcr=zeros(glc.MAXSAT,4); %observation for receiver clock jump repair(noly for GPS)
 rtk.clkjump=0; %receiver clock jump
 gls.rtk=rtk;
 clearvars rtk
@@ -796,19 +798,19 @@ glc.LEO_ID=zeros(40,1);
 gls.STD_BRDCCLK=0;
 glc.FlagBRD2FINE_PPP=1;
 gls.EPH_Fact=10;
-glc.URA_FINE=0.2;
+glc.URA_FINE=0.4;
 glc.URA_BRD=5;
 
 glc.FlagBRD2FINE_SPP=0;
 glc.STD_LEO=0.7;
 
 %% Noise Characterization
-glc.Activate_Noise_PRange=[0.5;0.5;0]; % Per Frequency
-glc.Activate_Noise_LRange=[0.01;0.01;0];% Per Frequency
+glc.Activate_Noise_PRange=1*[0.5;0.5;0]; % Per Frequency
+glc.Activate_Noise_LRange=1*[0.01;0.01;0];% Per Frequency
 glc.GAL_FactP=0.9; % Scale factor GPS vs Galileo 
 glc.GAL_FactL=0.9; % Scale factor GPS vs Galileo
-glc.LEO_FactP=1.3; % Scale factor GPS vs Galileo 
-glc.LEO_FactL=1.3; % Scale factor GPS vs Galileo
+glc.LEO_FactP=1; % Scale factor GPS vs Galileo 
+glc.LEO_FactL=1; % Scale factor GPS vs Galileo
 glc.Activate_ErrorPRange=1; 
 glc.Activate_ErrorLrRange=1;
 glc.Activate_EPHErr=0;
@@ -816,7 +818,8 @@ glc.Activate_EPHErr=0;
 
 
 %% Intersystem clock error 
-glc.Activate_ClockError=[0;0;0;0;0]; % Per System (5)
+glc.Activate_ClockError=1*[0.1;0;0.05;0;0]; % Per System (5)
+glc.Activate_ClockError_rate=1*[64;0;64;0;0]; % Per System (5)
 glc.Activate_ClockError_LEO=0;
 
 
@@ -825,6 +828,16 @@ glc.Activate_ClockError_LEO=0;
 glc.FileBRD=[];
 glc.FileHAS=[];
 
+glc.EPHERR=[];
+glc.EPHERR_LEO=[];
+glc.Scale_GNSS=1;
+glc.Scale_LEO=1;
+glc.HASBRDC_GNSS=1;
+glc.HASBRDC_LEO=1;
+glc.Shaffle_GNSS=0;
+glc.Shaffle_LEO=0;
+glc.ref_sat_err='G04';
+glc.SPPBRD=1;
 
 glc.ADDEPHERR_FromFile_SPP=0; % Valid Only for GPS and Galileo  (To be implemented) 
 glc.ADDEPHERR_SPP_GPS=[0;0;0];
@@ -834,7 +847,7 @@ glc.ADDEPHERR_SPP_LEO=[0;0;0];
 glc.ADDEPHERR_FromFile_PPP=0; % Valid Only for GPS and Galileo   
 glc.ADDEPHERR_PPP_GPS=[0;0;0];
 glc.ADDEPHERR_PPP_GAL=[0;0;0]; % SISRE Model Coefficient
-glc.ADDEPHERR_PPP_LEO=2*[0.1,0.01,0.001]; % SISRE Model Coefficient
+glc.ADDEPHERR_PPP_LEO=0*[0.1,0.01,0.001]; % SISRE Model Coefficient
 
 % In case of LEO-HAS
 %glc.ADDEPHERR_PPP_LEO=2*[0.05,0.001,0.0001]; % SISRE Model Coefficient
@@ -842,8 +855,7 @@ glc.ADDEPHERR_PPP_LEO=2*[0.1,0.01,0.001]; % SISRE Model Coefficient
 
 %% 
 glc.Relativity=1;
-
-
+glc.ID_BAN=[4,7,9,16,20,27,30];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % New Gls
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

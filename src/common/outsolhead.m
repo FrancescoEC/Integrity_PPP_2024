@@ -14,8 +14,15 @@ str=sprintf('%s program   : %s\n','%',opt.ver);
 
 %% start and end time
 if opt.ts==glc.OPT_TS
+    if isfield(obsr.data(1),'time')
     time=obsr.data(1).time;
+        epoch=time2epoch(time);
+
+    else
+    time.time=obsr.data(1);
+    time.sec=0;
     epoch=time2epoch(time);
+    end
 else
     time=str2time(opt.ts);
     epoch=time2epoch(time);
@@ -50,8 +57,14 @@ str=[str,sprintf('%s obs start : %s/%s/%s%s%s:%s:%s\n',...
     '%',year,month,day,sep,hour,minute,second)];
     
 if opt.te==glc.OPT_TE
+    if isfield(obsr.data(end),'time')
     time=obsr.data(end).time;
     epoch=time2epoch(time);
+    else
+    time.time=obsr.data(end);
+    time.sec=0;
+    epoch=time2epoch(time);
+    end
 else
     time=str2time(opt.te);
     epoch=time2epoch(time);

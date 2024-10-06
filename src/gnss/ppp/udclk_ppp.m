@@ -1,10 +1,25 @@
 function rtk=udclk_ppp(rtk)
 
-global glc
-opt=rtk.opt; VAR_CLK=60^2; CLIGHT=glc.CLIGHT; tt=abs(rtk.tt);
-navsys=opt.navsys; mask=rtk.mask; prn=0;
+global glc OptionClock
 
+
+%VAR_CLK=10^2; 
+opt=rtk.opt;
+VAR_CLK=opt.std(4)^2;
+CLIGHT=glc.CLIGHT; tt=abs(rtk.tt);
+
+navsys=opt.navsys; mask=rtk.mask; prn=opt.prn(7);
+if OptionClock
+rtk.sol.dtr([1,3])=0;
+end
 % for single-system except GPS
+if ~any(diag(rtk.P(rtk.ic+1:rtk.ic+5,rtk.ic+1:rtk.ic+5)))
+if strcmp(navsys,'G')
+    dtr=rtk.sol.dtr(1);
+    if abs(dtr)<=1e-16,dtr=1e-16;end
+    rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+1);
+    return
+end
 if strcmp(navsys,'R')
     dtr=rtk.sol.dtr(2);
     if abs(dtr)<=1e-16,dtr=1e-16;end
@@ -40,12 +55,32 @@ elseif strcmp(navsys,'J')
     rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+5);
     return
 end
+end
 
 % for GPS or multi-system
-dtr=rtk.sol.dtr(1);
+if ~opt.Galileo_REF
+dtr=CLIGHT*rtk.sol.dtr(1);
+rtk.x(rtk.ic+1)=dtr;
+%dtr=rtk.x(rtk.ic+1);
 if abs(dtr)<=1e-16,dtr=1e-16;end
-rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+1);
-for i=2:glc.NSYS
+%rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+1);
+rtk.P(rtk.ic+1,rtk.ic+1)=rtk.P(rtk.ic+1,rtk.ic+1)+prn^2*tt;
+
+vect=2:glc.NSYS;
+else
+dtr=CLIGHT*rtk.sol.dtr(3);
+rtk.x(rtk.ic+3)=dtr;
+
+%dtr=rtk.x(rtk.ic+3);
+if abs(dtr)<=1e-16,dtr=1e-16;end
+%rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+3);
+rtk.P(rtk.ic+3,rtk.ic+3)=rtk.P(rtk.ic+3,rtk.ic+3)+prn^2*tt;
+vect=[1,2,4,5];
+end
+
+%rtk.x(rtk.ic+1)=CLIGHT*dtr+rtk.sol.dtrd;
+
+for i=vect
     if mask(i)==0,continue;end
     if i==glc.SYS_GLO
         dtr=rtk.sol.dtr(2);
@@ -69,7 +104,10 @@ for i=2:glc.NSYS
             end
         end
     else
-        dtr=rtk.sol.dtr(i);
+        dtr=CLIGHT*rtk.sol.dtr(i);
+        %dtr=rtk.x(rtk.ic+i);
+        rtk.x(rtk.ic+i)=dtr;
+
         if rtk.x(rtk.ic+i)==0
             if abs(dtr)<=1e-16,dtr=1e-16;end
             rtk=initx(rtk,CLIGHT*dtr,VAR_CLK,rtk.ic+i);

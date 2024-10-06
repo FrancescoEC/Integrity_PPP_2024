@@ -246,6 +246,8 @@ while ~feof(fid)
         opt.prn(4)=buff(6);
         opt.prn(5)=buff(7);
         opt.prn(6)=buff(8);
+        opt.prn(7)=buff(9);
+
         continue;
     end
     
@@ -255,6 +257,8 @@ while ~feof(fid)
         opt.std(1)=buff(3);
         opt.std(2)=buff(4);
         opt.std(3)=buff(5);
+        opt.std(4)=buff(6);
+
         continue;
     end
     

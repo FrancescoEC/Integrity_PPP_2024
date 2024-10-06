@@ -7,20 +7,25 @@ function [rtk,stat]=pppos(rtk,obs,nav,opt)
 %        nav - navigation message
 %output: rtk - rtk control struct
 %        stat - state (0:error 1:ok)
-
-% Version 27-06-2024: Heiko Engwerda (HE): included residual based FDE and
-% protection level computation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-global  glc gls %RESIDUALS_PPP motionV2 STATE EPH
+global  glc gls ClockJump %RESIDUALS_PPP motionV2 STATE EPH
 persistent II 
 
 FlagBRD2FINE=glc.FlagBRD2FINE_PPP;
 
 if isempty(gls.Log.PPP)
     gls.Log.PPP.RESIDUALS=NaN(glc.MAXSAT*2*3,glc.Alloc);
+        gls.Log.PPP.RESIDUALS_SATNAV=NaN(glc.MAXSAT*2*3,glc.Alloc);
+        gls.Log.PPP.RESIDUALS_SATNAV_2=NaN(glc.MAXSAT*2*3,glc.Alloc);
+        gls.Log.PPP.RESIDUALS_SATNAV_3=NaN(glc.MAXSAT*2*3,glc.Alloc);
+        gls.Log.PPP.RESIDUALS_SATNAV_4=NaN(glc.MAXSAT*2*3,glc.Alloc);
+        gls.Log.PPP.EPHERR_SATANAV=NaN(glc.MAXSAT*2*3,glc.Alloc);
+
     gls.Log.PPP.STATE=NaN(rtk.nx,glc.Alloc);
     gls.Log.PPP.EPH=NaN(glc.MAXSAT*3,glc.Alloc);
     gls.Log.PPP.Nsat=NaN(1,glc.Alloc);
+    gls.Log.PPP.PRN=NaN(glc.MAXSAT,glc.Alloc);
+
     gls.Log.PPP.Tropo=NaN(glc.MAXSAT,glc.Alloc);
     gls.Log.PPP.Iono=NaN(glc.MAXSAT,glc.Alloc);
     gls.Log.PPP.time=NaN(1,glc.Alloc);
@@ -50,6 +55,10 @@ end
 
 % time update
 rtk=udstate_ppp(rtk,obs,nav);
+if ClockJump
+    stat=1;
+    return;
+end
 
 % debug tracing
 % fprintf('after time update');
@@ -79,11 +88,6 @@ if rtk.opt.tidecorr==1
     dr=tidedisp(gpst2utc(obs(1).time),rtk.sol.pos,7,nav.erp,nav.otlp);
 end
 
-% HE: initialize sliding window buffers
-sliding_window = 120; % sliding window size ideally according to correlation time (2 minutes for instance)
-Buffer_V_inv = zeros(50,50,sliding_window); % max 50 satellites and sliding window of "sliding_window" length
-Buffer_y = zeros(50,sliding_window); % max 50 satellites and sliding window of "sliding_window" length
-PRN_list = [];
 
 while iter<=MAXITER
     
@@ -105,18 +109,15 @@ while iter<=MAXITER
         stat=0;break;
     end
 
-    % Edit Heiko (HE) -------------------------------------------------
-    [PL1,PL2,PL3,PL4,PRN_list] = calculate_integrity(X,H,P,R,v,Buffer_V_inv,Buffer_y,PRN(PRN>0),PRN_list);
-    gls.Log.PPP.PL = PL4;
-    % End Edit Heiko (HE) ----------------------------------------------
-
+    
     % debug tracing
 %     fprintf('after measurement update');
 %     printx_ppp(X,rtk);
 %     printP(P,rtk);
     
     % calculate posteriori RESIDUALS_PPP,validate the solution
-    [v_post,H_post,R_post,azel_post,exc,stat,rtk,PRN,v_tot]=ppp_res(iter,X,rtk,obs,nav,sv,dr,exc);
+    [v_post,H_post,R_post,azel_post,exc,stat,rtk,PRN,v_tot,v_tot_2,v_tot_3,...
+       v_tot_4, v_tot_5,v_tot_6]=ppp_res(iter,X,rtk,obs,nav,sv,dr,exc);
          if stat_tmp==1
             gls.Log.PPP.STATE(1:length(X),II)=X;
             Sat_vis=vertcat(obs.sat);
@@ -126,8 +127,14 @@ while iter<=MAXITER
             gls.Log.PPP.EPH(Sat_vis+glc.MAXSAT+glc.MAXSAT+1,II)=Appo(3,:).';
 %           lll=vertcat(obs.sat);
 %             PRN=PRN(PRN~=0);
-            gls.Log.PPP.Nsat(1,II)=round(sum(v_tot~=0)/4);
-            gls.Log.PPP.RESIDUALS_PPP(PRN(PRN~=0),II)=v_tot(PRN~=0);
+            gls.Log.PPP.Nsat(1,II)=length(PRN(PRN<150 & PRN~=0));%round(sum(v_tot~=0)/4);
+            gls.Log.PPP.PRN((PRN(PRN<150 & PRN~=0)),II)=PRN(PRN<150 & PRN~=0);
+            gls.Log.PPP.RESIDUALS(PRN(PRN~=0),II)=v_tot(PRN~=0);
+            gls.Log.PPP.RESIDUALS_SATNAV(PRN(PRN~=0),II)=v_tot_2(PRN~=0);
+            gls.Log.PPP.RESIDUALS_SATNAV_2(PRN(PRN~=0),II)=v_tot_3(PRN~=0);
+            gls.Log.PPP.RESIDUALS_SATNAV_3(PRN(PRN~=0),II)=v_tot_4(PRN~=0);
+            gls.Log.PPP.RESIDUALS_SATNAV_4(PRN(PRN~=0),II)=v_tot_5(PRN~=0);
+            gls.Log.PPP.EPHERR_SATANAV(PRN(PRN~=0),II)=v_tot_6(PRN~=0);
             gls.Log.PPP.time(1,II)=obs(1).time.time;
             gls.Log.PPP.sim(1,II)=II;
 %             RESIDUALS_PPP(90+PRN,II)=v_post(2:2:2*length(PRN));
@@ -153,7 +160,7 @@ while iter<=MAXITER
 % 
 %             end
             II=II+1;
-         end
+   end
 
 
 

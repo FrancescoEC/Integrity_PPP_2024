@@ -2,7 +2,10 @@ function rtk=udamb_ppp(rtk,obs,nav)
 
 global glc 
 clk_jump=0; dantr=zeros(3,1);dants=zeros(3,1);phw=0; 
-nobs=size(obs,1); MAXSAT=glc.MAXSAT; VAR_BIAS=60^2;
+nobs=size(obs,1); MAXSAT=glc.MAXSAT; 
+opt=rtk.opt;
+%VAR_BIAS=60^2;
+VAR_BIAS=opt.std(1).^2;
 
 %handle day-boundary clock jump 
 if rtk.opt.posopt(6)==1

@@ -3,7 +3,7 @@ function rtk=estvel(rtk,obs,nav,sv,opt,sat_) %#ok
 %estimate reciever velocity and clock drift
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 MAXITER=10; iter=1; x=zeros(4,1); rtk.sol.dtrd=0;
-
+global glc
 while iter<=MAXITER
     
     % residual,measurement model,weight matrix
@@ -16,7 +16,7 @@ while iter<=MAXITER
     
     if dot(dx,dx)<10^-4
         rtk.sol.vel=x(1:3)';
-        rtk.sol.dtrd=x(4);
+        rtk.sol.dtrd=x(4)/glc.CLIGHT;
         break;
     end
     iter=iter+1;

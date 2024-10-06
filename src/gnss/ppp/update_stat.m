@@ -4,7 +4,11 @@ global glc
 opt=rtk.opt;
 nobs=size(obs,1);
 
+if ~opt.Galileo_REF
 rtk.sol.time=timeadd(obs(1).time,-rtk.x(rtk.ic+1)/glc.CLIGHT);
+else
+    rtk.sol.time=timeadd(obs(1).time,-rtk.x(rtk.ic+3)/glc.CLIGHT);
+end
 rtk.sol.ns=0;
 for i=1:nobs
     for j=1:opt.nf
