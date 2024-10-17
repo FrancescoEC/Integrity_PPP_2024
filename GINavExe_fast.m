@@ -34,10 +34,10 @@ Test_name='LEOPNT_clock10Mhz';
 %% Global Overwrite
     glc.BRDperPrec=1;
     glc.EphErrOverW=0.1000;
-    glc.OUTNAME='Test_PPP_LOW_MEO_MN_GAL_ONLY_EPH_NON_NON_REPORT_9sat';
+    glc.OUTNAME='Test_PPP_LOW_MEO_MN_LEO_FULL_EPH_NON_NON_REPORT';
 
 %LEOPNT_clock10Mhz
-ConfFile='GINav_PPP_LEO_MN_GAL_ONLY_DUMMY_REPORT.ini';
+ConfFile='GINav_PPP_LEO_MN_LEO_FULL_DUMMY_REPORT.ini';
 % execute GINavCfg to configure input file
 root=pwd;
 Parth_conf=fullfile(root,'conf','PPP');
@@ -146,7 +146,7 @@ glc.ConfFile=ConfFile;
 % % end
 
 opt.Galileo_REF=0;
-opt.LEO_Aug=0;
+opt.LEO_Aug=1;
 opt.LEO_pseudoonly=0;
 opt.LEOsingleFreq=0;
 opt.Slant_TEC=1;
